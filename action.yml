@@ -1,0 +1,20 @@
+# action.yaml
+name: 'AGS Toolbox Builder'
+description: 'GitHub Action using AGS Toolbox to build AGS Games'
+branding:
+  icon: 'box'
+  color: 'blue'
+inputs:
+  path:
+    description: 'Directory game project, required when you have multiple ags projects'
+    required: False
+    default: .
+outputs:
+  output:
+    description: 'The output of AGS Toolbox Build'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
