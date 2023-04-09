@@ -14,7 +14,7 @@ SRCDIR=$1
 # NOTE: when things are more stable, perhaps we could pull it from pip?
 # python -m pip install --upgrade pip wheel setuptools
 
-wget -nv https://github.com/ericoporto/agstoolbox/releases/download/0.3.9/atbx.exe
+wget -nv https://github.com/ericoporto/agstoolbox/releases/download/0.3.10/atbx.exe
 mkdir /wine/drive_c/agstoolbox/
 mv atbx.exe /wine/drive_c/agstoolbox/
 echo 'wine '\''C:\agstoolbox\atbx.exe'\'' "$@"' > /usr/bin/atbx
@@ -25,7 +25,7 @@ if [ -f ${SRCDIR} ]; then
   cd ${SRCDIR}
 fi
 
-atbx install editor .
+atbx install editor . -q -f
 atbx build .
 
 find . -type f -name "*.exe"
