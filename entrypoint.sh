@@ -18,6 +18,8 @@ wget -nv https://github.com/ericoporto/agstoolbox/releases/download/0.3.9/atbx.e
 mkdir /wine/drive_c/agstoolbox/
 mv atbx.exe /wine/drive_c/agstoolbox/
 echo 'wine '\''C:\agstoolbox\atbx.exe'\'' "$@"' > /usr/bin/atbx
+chmod +x /wine/drive_c/agstoolbox/atbx.exe
+chmod +x /usr/bin/atbx 
 
 if [ -f ${SRCDIR} ]; then
   cd ${SRCDIR}
