@@ -11,11 +11,11 @@ set -e
 # and don't allow that much flexibility to mount volumes
 SRCDIR=$1
 
-python -m pip install --upgrade pip wheel setuptools
+# NOTE: when things are more stable, perhaps we could pull it from pip?
+# python -m pip install --upgrade pip wheel setuptools
 
+wget -nv https://github.com/ericoporto/agstoolbox/releases/download/0.3.9/atbx.exe
 mkdir /wine/drive_c/agstoolbox/
-
-wget -nv https://github.com/ericoporto/agstoolbox/releases/download/0.3.8/atbx.exe
 mv atbx.exe /wine/drive_c/agstoolbox/
 echo 'wine '\''C:\agstoolbox\atbx.exe'\'' "$@"' > /usr/bin/atbx
 
