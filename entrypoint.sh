@@ -35,9 +35,15 @@ atbx settings set tools_install_dir C:\\editors
 atbx settings show tools_install_dir
 atbx install editor . -q -f
 atbx list editors
-xvfb-run -a wine /wine/drive_c/editors/Editor/3.6.0.44/AGSEditor.exe \/compile distfx_demo/Game.agf
-
 atbx list projects
-atbx build .
 
+echo 'will attempt to build in the editor'
+
+xvfb-run atbx build .
+
+echo 'look for any exe files...'
 find . -type f -name "*.exe"
+echo 'look for any ags files...'
+find . -type f -name "*.ags"
+
+echo 'finished'
