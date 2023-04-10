@@ -14,6 +14,11 @@ SRCDIR=$1
 # NOTE: when things are more stable, perhaps we could pull it from pip?
 # python -m pip install --upgrade pip wheel setuptools
 
+Xvfb :99 -screen 0 1024x768x8 -nolisten tcp &
+
+export DISPLAY=:99
+
+
 wget -nv https://github.com/ericoporto/agstoolbox/releases/download/0.3.10/atbx.exe
 mkdir /wine/drive_c/agstoolbox/
 mkdir /wine/drive_c/editors/
