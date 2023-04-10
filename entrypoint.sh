@@ -15,9 +15,7 @@ SRCDIR=$1
 # python -m pip install --upgrade pip wheel setuptools
 
 Xvfb :99 -screen 0 1024x768x8 -nolisten tcp &
-
 export DISPLAY=:99
-
 
 wget -nv https://github.com/ericoporto/agstoolbox/releases/download/0.3.10/atbx.exe
 mkdir /wine/drive_c/agstoolbox/
@@ -39,7 +37,7 @@ atbx list projects
 
 echo 'will attempt to build in the editor'
 
-xvfb-run atbx build .
+xvfb-run -a atbx build .
 
 echo 'look for any exe files...'
 find . -type f -name "*.exe"
