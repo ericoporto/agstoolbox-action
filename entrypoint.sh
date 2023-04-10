@@ -14,8 +14,7 @@ SRCDIR=$1
 # NOTE: when things are more stable, perhaps we could pull it from pip?
 # python -m pip install --upgrade pip wheel setuptools
 
-Xvfb :99 -screen 0 1024x768x8 -nolisten tcp &
-export DISPLAY=:99
+
 
 wget -nv https://github.com/ericoporto/agstoolbox/releases/download/0.3.10/atbx.exe
 mkdir /wine/drive_c/agstoolbox/
@@ -37,7 +36,11 @@ atbx list projects
 
 echo 'will attempt to build in the editor'
 
-xvfb-run -a atbx build .
+Xvfb :99 -screen 0 1024x768x8 -nolisten tcp &
+export DISPLAY=:99
+xvfb-run wine /wine/drive_c/editors/Editor/3.6.0.44/AGSEditor.exe \/compile distfx_demo/Game.agf
+
+# xvfb-run -a atbx build .
 
 echo 'look for any exe files...'
 find . -type f -name "*.exe"
