@@ -16,6 +16,7 @@ SRCDIR=$1
 
 wget -nv https://github.com/ericoporto/agstoolbox/releases/download/0.3.10/atbx.exe
 mkdir /wine/drive_c/agstoolbox/
+mkdir /wine/drive_c/editors/
 mv atbx.exe /wine/drive_c/agstoolbox/
 echo 'wine '\''C:\agstoolbox\atbx.exe'\'' "$@"' > /usr/bin/atbx
 chmod +x /wine/drive_c/agstoolbox/atbx.exe
@@ -25,7 +26,11 @@ if [ -f ${SRCDIR} ]; then
   cd ${SRCDIR}
 fi
 
+atbx settings set tools_install_dir C:\\editors
+atbx settings show all
 atbx install editor . -q -f
+atbx list editors
+atbx list projects
 atbx build .
 
 find . -type f -name "*.exe"
