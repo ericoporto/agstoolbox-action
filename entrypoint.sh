@@ -27,7 +27,7 @@ if [ -f ${SRCDIR} ]; then
 fi
 
 atbx settings set tools_install_dir C:\\editors
-atbx settings show all
+atbx settings show tools_install_dir
 atbx install editor . -q -f
 atbx list editors
 atbx list projects
